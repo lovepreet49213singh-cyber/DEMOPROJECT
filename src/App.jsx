@@ -5,6 +5,7 @@ import AboutPage from "./component/About.jsx";
 import Contact from "./component/Contact.jsx";
 import LandingPage from "./component/LandingPage.jsx";
 import Listing from "./component/Listing.jsx";
+import PropertyDetail from "./component/PropertyDetail.jsx";
 
 
 export default function App() {
@@ -18,7 +19,9 @@ export default function App() {
         <Route path="/Aboutus" element={<AboutPage />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Listing" element={<Listing />} />
-       
+        
+        {/* Property Detail Route */}
+        <Route path="/property/:id" element={<PropertyDetail />} />
 
         {/* 404 Page */}
         <Route

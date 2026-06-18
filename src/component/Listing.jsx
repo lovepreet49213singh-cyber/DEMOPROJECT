@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import { Listitems } from "../Dummydata/Properties.jsx";
+import { useNavigate } from "react-router-dom";
 
 function Listing() {
-
+    const navigate = useNavigate();
     
 
   return (
@@ -31,12 +32,18 @@ function Listing() {
             {Listitems.map((item) => (
                 
                 <div key={item.id} className="bg-white rounded-lg shadow-md p-6">
-                    <img src={item.image} alt={item.title} className="w-full h-48 object-cover mb-4" />
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-gray-700 mb-4">{item.description}</p>
-                    <p className="text-gray-900 font-bold">${item.price}</p>
-               
-                </div>
+                    <Link to={`/property/${item.id}`} className="block">
+                        <img src={item.image} alt={item.title} className="w-full h-48 object-cover mb-4" />
+                        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                        <p className="text-gray-700 mb-4">{item.description}</p>
+                        <p className="text-gray-900 font-bold">${item.price}</p>
+                    </Link>
+
+                    <button onClick={() => navigate(`/property/${item.id}`)} className="mt-4 w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-medium">
+                        View Details
+                    </button>
+
+                </div>  
             ))}
         </div>
       </div>
