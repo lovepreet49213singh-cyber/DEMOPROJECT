@@ -24,7 +24,7 @@ export default function Navbar() {
       <div className="header-top py-2 bg-indigo-600 text-white text-center text-sm">
 					<div className="template-ad flex items-center justify-center gap-2">
 						<img src="/badge-icon.svg" alt="icon"/>
-						<h5>No 1, Website to Buy / Sell </h5><img src="/car-1.png" alt="icon"/><h5> <span>First Listing Free!!!</span></h5>
+						<h5>No 1, Website to Buy / Sell </h5><img className="w-4 h-4" src="/home-icon.png" alt="icon"/><h5> <span>First Listing Free!!!</span></h5>
             
 					</div>
 				</div>
