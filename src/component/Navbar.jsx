@@ -42,17 +42,17 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
       <nav className="hidden md:flex gap-6 text-sm items-center">
-  <NavLink to="/" className={navLinkClass}>Home</NavLink>
+  <NavLink to="/" className={navLinkClass} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Home</NavLink>
 
-  <NavLink to="/Aboutus" className={navLinkClass}>
+  <NavLink to="/Aboutus" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={navLinkClass}>
     About Us
   </NavLink>
 
-  <NavLink to="/Listing" className={navLinkClass}>
+  <NavLink to="/Listing" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={navLinkClass}>
    Listing
   </NavLink>
 
-  <NavLink to="/Contact" className={navLinkClass}>
+  <NavLink to="/Contact"  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={navLinkClass}>
     Contact
   </NavLink>
 

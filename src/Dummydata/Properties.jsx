@@ -47,8 +47,12 @@ import {
     images: ["/home-2.png", "/home-2.png"],
     description: "Convenient parking spot near downtown.",
     price: "$200 / month",    
+
+
+
     amenities: [
        { label: "CCTV Coverage", icon: ShieldCheck },
+
       { label: "Car Washing", icon: Car },
       { label: "24/7 Access", icon: Clock },
       { label: "Covered Parking", icon: Warehouse },

@@ -56,7 +56,7 @@ function PropertyDetail() {
           {/* Details */}
           <div className="flex flex-col justify-between">
             <div>
-              <h1 className="text-3xl font-bold">{item.title}</h1>
+              <h1 className="mt-4 text-3xl font-bold text-indigo-600">{item.name}</h1>
               <p className="text-gray-600 mt-1">{item.address}</p>
               <p className="text-sm text-gray-500 mt-1">
                 {item.distance} km away
