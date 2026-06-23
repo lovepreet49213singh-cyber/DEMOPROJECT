@@ -1,49 +1,59 @@
-import react from "react";
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar.jsx";
-import Footer from "./Footer.jsx";
-import {testimonials} from "../Dummydata/ClientData.jsx";
+import React from "react";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
-function About() {
+export default function About() {
   return (
     <>
     <Navbar />
-    <div className="h-screen flex flex-col items-center justify-center text-center">
-      <section className="mt-25">
-      <h1 className="text-4xl font-bold mb-4">About Us</h1>
-      <p className="text-lg mb-6">Learn more about our company and mission.</p>
-      <Link to="/" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Go to Homepage
-      </Link>
-    </section>
-    
-    <section className="mt-10">
-      <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
-      <p className="text-lg mb-6 px-4">Our mission is to provide high-quality products and services that improve the lives of our customers.</p>
-    </section>
-    <section className="mt-10 ">
-      <h2 className="text-2xl font-bold mb-4">Our Team</h2>
-      <p className="text-lg mb-6 px-4">We have a dedicated team of professionals who are passionate about what they do and are committed to</p>
-    </section>
-    </div>
-    {/* Testimonials Section with swiper cards with timing */}
-    <section className="mt-10 bg-gray-100 py-10">
-      <h2 className="text-2xl font-bold mb-4 text-center">Testimonials</h2>
-      
-      <div className="max-w-7xl mx-auto px-6 flex overflow-x-auto space-x-6">
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-lg min-w-[300px]">
-            <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full mb-4" />  
-            <h3 className="text-xl font-bold">{testimonial.name}</h3>
-            <p className="text-gray-600">{testimonial.title}</p>
-            <p className="text-gray-500 mt-2">{testimonial.text}</p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero */}
+      <section className="bg-indigo-600 text-white py-20">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h1 className="text-4xl font-bold mb-4">About RealEstate</h1>
+          <p className="text-lg max-w-2xl mx-auto">
+            Making property buying and selling simple, smart, and accessible — wherever you are.
+          </p>
+        </div>
+      </section>
+
+      {/* Content */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl font-bold mb-4">
+              Who We Are
+            </h2>
+            <p className="text-gray-700 mb-4">
+              RealEstate is a platform that connects property owners with people
+              looking for homes — for rent or purchase.
+            </p>
+            <p className="text-gray-700 mb-4">
+              Whether you’re searching for a nearby property or want to monetize
+              your unused space, RealEstate makes the process easy and reliable.
+            </p>
+            <p className="text-gray-700">
+              Our mission is to simplify real estate transactions using technology,
+              transparency, and trust.
+            </p>
           </div>
-        ))}
-      </div>
-    </section>
+
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <h3 className="text-xl font-semibold mb-4">
+              Why Choose RealEstate?
+            </h3>
+            <ul className="space-y-3 text-gray-700">
+              <li>✔ Verified property  listings</li>
+              <li>✔ Transparent pricing</li>
+              <li>✔ Smart location-based search</li>
+              <li>✔ Secure & trusted owners</li>
+              <li>✔ Easy booking & communication</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
     <Footer />
-    </>
+  </>
   );
 }
-
-export default About;

@@ -1,83 +1,110 @@
-import react from "react";
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar.jsx";
-import Footer from "./Footer.jsx";
+import React, { useState } from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-function Contact() {
+
+export default function Contact() {
+  
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     try {
+//       await fetch("https://resumewebsitebackend.vercel.app/send-email", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//           to: "support@garagenearme.com",
+//           subject: "Contact Form - GarageGo",
+//           text: `
+// Name: ${form.name}
+// Email: ${form.email}
+
+// Message:
+// ${form.message}
+//           `,
+//         }),
+//       });
+
+//       alert("Message sent successfully!");
+//       setForm({ name: "", email: "", message: "" });
+//     } catch (err) {
+//       alert("Failed to send message");
+//     }
+//   };
+
   return (
     <>
     <Navbar />
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-indigo-600 text-white py-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-center">
-          Contact Us
-        </h1>
-        <p className="text-center mt-2 text-gray-200">
-          We'd love to hear from you! Please fill out the form below or reach
-          us through our contact details.
-        </p>
-      </div>
-      <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10">
-        {/* Contact Details */}
-       <div className="bg-white p-6 rounded-lg shadow-lg">
-        <img src="/hero.jpg" alt="Contact Image" className="w-full h-64 object-cover rounded-lg" />
-        <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
-        <p className="text-gray-600 mb-4">
-          Have questions or need assistance? Reach out to us through any of the
-          following methods:
-        </p>
-       </div>
+      <section className="bg-indigo-600 text-white py-16">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h1 className="text-4xl font-bold">Contact Us</h1>
+          <p className="mt-2 text-lg">
+            We’d love to hear from you
+          </p>
+        </div>
+      </section>
 
-      {/* Contact Form */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <form className="bg-white p-6 rounded-lg shadow-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-          </div>
-          <div className="mt-4">
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-              Message
-            </label>
+      {/* Form */}
+      <section className="max-w-3xl mx-auto px-6 py-16">
+        <div className="bg-white rounded-xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold mb-6">
+            Send us a message
+          </h2>
+
+          <form  className="space-y-4">
+            <input
+              name="name"
+              required
+              placeholder="Your Name"
+              className="w-full border rounded-lg px-4 py-3"
+              value={form.name}
+              // onChange={handleChange}
+            />
+
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Your Email"
+              className="w-full border rounded-lg px-4 py-3"
+              value={form.email}
+              // onChange={handleChange}
+            />
+
             <textarea
-              id="message"
-              rows={4}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-            ></textarea>
-          </div>
-          <div className="mt-4">
+              name="message"
+              required
+              rows="5"
+              placeholder="Your Message"
+              className="w-full border rounded-lg px-4 py-3"
+              value={form.message}
+              // onChange={handleChange}
+            />
+
             <button
               type="submit"
-              className="bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition font-medium"
+              className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition font-medium"
             >
               Send Message
             </button>
-          </div>
-        </form>
-      </div>
-      </div>
-    <Footer />
+          </form>
+        </div>
+      </section>
     </div>
+    <Footer />
     </>
+
   );
+  
 }
-export default Contact;
